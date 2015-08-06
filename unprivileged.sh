@@ -25,3 +25,27 @@ source ~/.profile
 echo "Clearing NPM cache..."
 npm cache clean
 echo "... done."
+
+# customizing the bash shell
+echo "Customizing shell..."
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh --none
+mkdir ~/.bash_it/aliases/enabled
+mkdir ~/.bash_it/plugins/enabled
+ln -s ~/.bash_it/aliases/available/general.aliases.bash ~/.bash_it/aliases/enabled/general.aliases.bash
+ln -s ~/.bash_it/aliases/available/git.aliases.bash ~/.bash_it/aliases/enabled/git.aliases.bash
+ln -s ~/.bash_it/aliases/available/laravel.aliases.bash ~/.bash_it/aliases/enabled/laravel.aliases.bash
+ln -s ~/.bash_it/aliases/available/vim.aliases.bash ~/.bash_it/aliases/enabled/vim.aliases.bash
+ln -s ~/.bash_it/plugins/available/base.plugin.bash ~/.bash_it/plugins/enabled/base.plugin.bash
+ln -s ~/.bash_it/plugins/available/dirs.plugin.bash ~/.bash_it/plugins/enabled/dirs.plugin.bash
+ln -s ~/.bash_it/plugins/available/git.plugin.bash ~/.bash_it/plugins/enabled/git.plugin.bash
+ln -s ~/.bash_it/plugins/available/history.plugin.bash ~/.bash_it/plugins/enabled/history.plugin.bash
+ln -s ~/.bash_it/plugins/available/ssh.plugin.bash ~/.bash_it/plugins/enabled/ssh.plugin.bash
+sed -i "s/export BASH_IT_THEME='bobby'/export BASH_IT_THEME='bakke'/" ~/.bashrc
+touch ~/.bash_profile
+cat <<EOT >> ~/.bash_profile
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+EOT
+echo "... done."

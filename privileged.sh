@@ -5,11 +5,6 @@ echo "Updating repositories..."
 sudo apt-get update
 echo "... done."
 
-# Upgrading
-echo "Upgrading system packages..."
-sudo apt-get -y upgrade
-echo "... done."
-
 # Forcing locale
 echo "Forcing locale..."
 echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
@@ -24,11 +19,12 @@ echo "... done."
 
 # Installing utilities
 echo "Installing python-software-properties, vim, curl, git, build-essential..."
+sudo apt-get install -qq build-essential > /dev/null 2>&1
+sudo apt-get install -qq software-properties-common > /dev/null 2>&1
 sudo apt-get install -qq python-software-properties > /dev/null 2>&1
 sudo apt-get install -qq vim > /dev/null 2>&1
 sudo apt-get install -qq curl > /dev/null 2>&1
 sudo apt-get install -qq git > /dev/null 2>&1
-sudo apt-get install -qq build-essential > /dev/null 2>&1
 echo "... done."
 
 # Installing NodeJs
