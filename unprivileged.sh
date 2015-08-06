@@ -44,6 +44,9 @@ ln -s ~/.bash_it/plugins/available/ssh.plugin.bash ~/.bash_it/plugins/enabled/ss
 sed -i "s/export BASH_IT_THEME='bobby'/export BASH_IT_THEME='bakke'/" ~/.bashrc
 touch ~/.bash_profile
 cat <<EOT >> ~/.bash_profile
+if [ -f ~/.profile ]; then
+   source ~/.profile
+fi
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
