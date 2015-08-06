@@ -29,16 +29,15 @@ echo "... done."
 
 # Installing NodeJs
 echo "Installing NodeJS..."
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get update
-sudo apt-get install -qq nodejs > /dev/null 2>&1
-sudo ln -s /usr/bin/nodejs /usr/bin/node
+sudo add-apt-repository ppa:chris-lea/node.js &> /dev/null
+sudo apt-get update &> /dev/null
+sudo apt-get install -qq nodejs &> /dev/null
 echo "... done."
 
 # Installing and setting up Npm
 echo "Installing NPM..."
-sudo curl -s -L https://www.npmjs.com/install.sh | sh
-sudo npm config set registry http://registry.npmjs.org/
+sudo curl -s -L https://www.npmjs.com/install.sh | sh > /dev/null 2>&1
+sudo npm config set registry http://registry.npmjs.org/ &> /dev/null
 echo "... done."
 
 # Enable swap memory
