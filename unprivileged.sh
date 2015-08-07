@@ -21,6 +21,10 @@ source ~/.bashrc
 echo "alias npmi='npm install --no-bin-links'" >> ~/.profile
 source ~/.profile
 
+# fixing NPM long paths in windows hosts installing npm@3.x that flattens all dependencies
+npm install -g npm@3.0-latest
+echo "... done."
+
 # clearing the cache solves some tar.unpack problems... (details: https://github.com/npm/npm/issues/5133)
 echo "Clearing NPM cache..."
 npm cache clean

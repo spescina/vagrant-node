@@ -14,5 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Run The Base Provisioning Script
 	config.vm.provision :shell, path: "./privileged.sh"
     config.vm.provision :shell, path: "./unprivileged.sh", privileged: false
+    config.vm.provision :shell, path: "./privileged.after.sh"
 
 end
